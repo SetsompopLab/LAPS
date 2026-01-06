@@ -27,7 +27,7 @@ from laps.dataloaders import (
     ConcatDataset,
     LoaderType,
 )
-from laps.dataset import PIPS_DATASETS
+from laps.dataset import LAPS_DATASETS
 from laps.recon.adadiff.utils.EMA import EMA
 from laps.recon.adadiff.utils.networks.discriminator import (
     Discriminator_large,
@@ -418,7 +418,7 @@ def train(args):
         LoaderType.FASTMRI_T1PRE,
     ]
     dataset = ConcatDataset(
-        [PIPS_DATASETS[d].get_dataset("train", **dataset_kwargs) for d in dataset_list]
+        [LAPS_DATASETS[d].get_dataset("train", **dataset_kwargs) for d in dataset_list]
     )
 
     # Create a smaller dataset for debugging

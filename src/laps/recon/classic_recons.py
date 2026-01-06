@@ -149,7 +149,7 @@ def LACS_fista_recon(
     x0: torch.Tensor,  # prior image
     lamda1: float = 1e-3,  # range [0.001, 0.9]
     lamda2: float = 1e-3,  # range [0.001, 0.9]
-    eps: Optional[float] = 0.1,  # TODO: pick good value
+    eps: Optional[float] = 0.1,
     num_iters: int = 5,
     num_fista_iters: int = 40,
     tol: Optional[float] = 1e-6,

@@ -679,8 +679,8 @@ class CGReconstructor(Reconstructor):
             assert (
                 kwargs["priors"].abs().max() <= 1
             ), "We assume prior is normalized [0, 1]"
-            prior = kwargs["priors"]  # TODO: ensure prior scaled correctly
-
+            prior = kwargs["priors"]
+        
         recons = []
         B = measurements.shape[0]
         for i in range(B):

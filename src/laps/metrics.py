@@ -16,7 +16,7 @@ from torchmetrics.image import (
     VisualInformationFidelity,
 )
 
-from pips.utils import convert_to_numpy
+from laps.utils import convert_to_numpy
 
 
 def compute_patch_based_metrics(

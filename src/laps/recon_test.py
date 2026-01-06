@@ -88,7 +88,7 @@ class Config:
     retrospective_undersampling: bool = True
     vd_factor_1D: float = 0.8
     vd_factor_2D: float = 1.5
-    use_gt_mps: bool = True # TODO: false
+    use_gt_mps: bool = True # use ground truth sensitivity maps for faster inference for demo.
     seed_undersampling: bool = False
 
     recons: Dict[str, ReconParams] = field(

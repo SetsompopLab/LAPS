@@ -108,7 +108,6 @@ def csm_from_espirit(
     num_coils = ksp_cal.shape[0]
     device = ksp_cal.device
 
-    # TODO torch this part
     # Get calibration matrix.
     # Shape [num_coils] + num_blks + [kernel_width] * img_ndim
     if use_cupy_for_blocks:
@@ -182,7 +181,7 @@ def csm_from_espirit(
         # Update AHA
         if (
             sets_of_maps > 1
-        ):  # becasue this is memory-intensive. TODO: fix this problem in general.
+        ):  # becasue this is memory-intensive.
             AHA -= einsum(mps * eigen_vals, mps.conj(), "Cl ..., Cr ... -> ... Cl Cr")
         mps_all.append(mps)
         evals_all.append(eigen_vals)

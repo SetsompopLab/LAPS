@@ -7,7 +7,7 @@ import torch
 from loguru import logger
 from scipy.ndimage import label
 
-from pips.recon.linops import CartesianSenseLinop
+from laps.recon.linops import CartesianSenseLinop
 
 """
 Tools for MRI undersampling simulation and computation.
