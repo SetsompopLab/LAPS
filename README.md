@@ -22,6 +22,8 @@ mamba activate laps
 
 3. If not already done, create a `wandb` account as described here: https://docs.wandb.ai/models/quickstart
 
+4. Log into huggingface credentials with `hugginface-cli login` to retrieve models.
+
 ## Usage
 
 ### Retrieving SLAM dataset 
@@ -51,12 +53,18 @@ prepare_slam_train(dicom=True)
 prepare_slam_test()
 ```
 
+### Inference
+After retrieving SLAM data, inference can be done with this script:
+`python src/laps/recon_test.py`
+
+Various reconstruction methods can be compared by adding or removing to the `recons` dictionary in the `Config` class. See `laps.recon` module for the different reconstruction methods implemented and their respective parameters.
+
 ### SD Model and Fine-tuning development
 
 We have shared our code for fine-tuning both MedVAE and Stable Diffusion for our LAPS model development.
 
 ### Fine-tuning MedVAE
-To finetune medvae, run:
+An example of our medvae finetune is shown with this script:
 ```bash
 # Make sure the environment is active
 mamba activate laps
@@ -72,28 +80,9 @@ To finetune stable diffusion model, run:
 
 ```bash
 # Make sure the environment is active
-mamba activate pips
+mamba activate laps
 
 # Run the training script
 bash scripts/train_sd.sh
 ```
 If you want to set up `accelerator` for multi gpu training run `accelerate config` and follow the instruction.
-
-
-## Adding a dataset
-Link the csv table to ./data folder using:
-`ln -s /path/to/csv ./data/<dsname>.csv`
-
-link the data:
-`ln -s /path/to/data ./data/`
-
-In `src/pips/dataloaders/loaders.py` add a loader type, and update `get_loader` with a loader for the new dataset.
-
-In `src/pips/dataset.py` update PIPS_DATASETS with the new dataset.
-
-For training the SD model, update the config in `src/pips/config/sd_training.py`.
-
-For medvae, update the config: `/data/yurman/repos/pips/submodules/pips-medvae/configs/dataloader/slam.yaml`
-
-## Components usage examples
-Can be found under tests.

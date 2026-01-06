@@ -94,15 +94,15 @@ class Config:
     recons: Dict[str, ReconParams] = field(
         default_factory=lambda: {
             "CG": CGParams(max_iter=15, lamda_l2=1e-4),
-            # "CS": LACSParams(
-            #     lamda_1 = 5e-5,
-            #     lamda_2 = 0,
-            #     max_iter = 1,
-            #     max_fista_iter = 100,
-            # ),
-            # "LACS": LACSParams(
-            #     lamda_1=1e-5, lamda_2=1e-4, max_iter=5, max_fista_iter=25
-            # ),
+            "CS": LACSParams(
+                lamda_1 = 5e-5,
+                lamda_2 = 0,
+                max_iter = 1,
+                max_fista_iter = 100,
+            ),
+            "LACS": LACSParams(
+                lamda_1=1e-5, lamda_2=1e-4, max_iter=5, max_fista_iter=25
+            ),
             "MODL": ModlParams(),
             "NERP": NERPParams(),
             "AdaDiff": AdaDiffParams(),
