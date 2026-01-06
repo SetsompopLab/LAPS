@@ -1,0 +1,75 @@
+.archive
+
+.vscode
+tfevent
+logs
+inference
+out
+figs
+ignore
+debug
+slurm
+tmp
+wandb
+.cache
+data
+pretrained
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdf
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Testing
+*.pyc
+*.pyo
+
+# Editor files
+.vscode/
+.idea/
+.ruff.*
+
+# macOS
+.DS_Store
+
+# PyCharm
+.idea/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile
+Pipfile.lock
+
+*.png
+*.npy
+*.log
+play.ipynb
+*.pdf
