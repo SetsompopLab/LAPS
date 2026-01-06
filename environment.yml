@@ -36,5 +36,5 @@ dependencies:
     - git+https://github.com/mikgroup/sigpy.git@5f63aa5cb3646023a00e83ea708e767861271b94
     - pyeyes
     - -e submodules/diffusers
-    - -e submodules/pips-medvae
+    - -e submodules/laps-medvae
     - -e .

@@ -1,0 +1,235 @@
+defaults:
+  - default.yaml
+
+train:
+  dataset:
+    _target_: medvae.dataloaders.ConcatDataset
+    datasets:
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/T1_dataset.csv
+        split_column: split
+        split_name: train
+        data_dir: ${paths.data_dir}/T1/
+        dataset_id: 2
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+              random_flip: true
+              rot_degree: 10
+
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/T2_dataset.csv
+        split_column: split
+        split_name: train
+        data_dir: ${paths.data_dir}/T2/
+        dataset_id: 3
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+              random_flip: true
+              rot_degree: 10
+
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/FLAIR_dataset.csv
+        split_column: split
+        split_name: train
+        data_dir: ${paths.data_dir}/FLAIR/
+        dataset_id: 4
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+              random_flip: true
+              rot_degree: 10
+
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/T1POST_dataset.csv
+        split_column: split
+        split_name: train
+        data_dir: ${paths.data_dir}/T1POST/
+        dataset_id: 5
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+              random_flip: true
+              rot_degree: 10
+
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/T1PRE_dataset.csv
+        split_column: split
+        split_name: train
+        data_dir: ${paths.data_dir}/T1PRE/
+        dataset_id: 6
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+              random_flip: true
+              rot_degree: 10
+
+
+valid:
+  dataset:
+    _target_: medvae.dataloaders.ConcatDataset
+    datasets:
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/T1_dataset.csv
+        split_column: split
+        split_name: val
+        data_dir: ${paths.data_dir}/T1/
+        dataset_id: 9
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/T2_dataset.csv
+        split_column: split
+        split_name: val
+        data_dir: ${paths.data_dir}/T2/
+        dataset_id: 10
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/FLAIR_dataset.csv
+        split_column: split
+        split_name: val
+        data_dir: ${paths.data_dir}/FLAIR/
+        dataset_id: 11
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/T1POST_dataset.csv
+        split_column: split
+        split_name: val
+        data_dir: ${paths.data_dir}/T1POST/
+        dataset_id: 12
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/T1PRE_dataset.csv
+        split_column: split
+        split_name: val
+        data_dir: ${paths.data_dir}/T1PRE/
+        dataset_id: 13
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+
+test:
+  dataset:
+    _target_: medvae.dataloaders.ConcatDataset
+    datasets:
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/T1_dataset.csv
+        split_column: split
+        split_name: test
+        data_dir: ${paths.data_dir}/T1/
+        dataset_id: 16
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/T2_dataset.csv
+        split_column: split
+        split_name: test
+        data_dir: ${paths.data_dir}/T2/
+        dataset_id: 17
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/FLAIR_dataset.csv
+        split_column: split
+        split_name: test
+        data_dir: ${paths.data_dir}/FLAIR/
+        dataset_id: 18
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/T1PRE_dataset.csv
+        split_column: split
+        split_name: test
+        data_dir: ${paths.data_dir}/T1PRE/
+        dataset_id: 19
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load
+
+      - _target_: medvae.dataloaders.GenericDataset
+        split_path: ${paths.data_dir}/T1POST_dataset.csv
+        split_column: split
+        split_name: test
+        data_dir: ${paths.data_dir}/T1POST/
+        dataset_id: 20
+        img_column: image_uuid
+        img_suffix: .npy
+        img_transform:
+          _target_: torchvision.transforms.Compose
+          transforms:
+            - _partial_: true
+              _target_: pips.dataloaders.fastmri_load

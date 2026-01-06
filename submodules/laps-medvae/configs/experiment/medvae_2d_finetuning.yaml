@@ -1,0 +1,31 @@
+# @package _global_
+
+defaults:
+  - override /criterion: lpips_with_discriminator.yaml
+  - override /dataloader: slam.yaml
+  - override /metrics: reconstruction_minimal.yaml
+
+# Finetuning parameters to change
+task_name: slam_finetuning
+input: 
+output: /local_mount/space/mayday/data/datasets/pips/models
+model_name: medvae_4_4_2d_c
+dataset_name: slam
+stage2: false
+device: cuda
+
+# Training parameters to change
+mixed_precision: "no"
+gradient_accumulation_steps: 3
+max_epoch: 200
+batch_size: 12
+log_every_n_steps: 20
+log_img_every_n_steps: 200
+val_log_img_every_n_steps: 50
+base_learning_rate: 4.5e-6
+ema_decay: null
+fast_dev_run: false
+
+criterion:
+  num_channels: 2
+  disc_start: 5000
