@@ -1,0 +1,40 @@
+name: laps
+channels:
+  - conda-forge
+  - nvidia
+dependencies:
+  - python=3.13.*
+  - numpy
+  - h5py
+  - black
+  - matplotlib
+  - pip
+  - einops
+  - pre-commit
+  - tqdm
+  - wandb
+  - pandas
+  - ipykernel
+  - loguru
+  - accelerate=1.7.0
+  - pytest
+  - pip:
+    - torch==2.7.1
+    - torchvision
+    - cupy-cuda12x
+    - antspyx
+    - tensorboard
+    - huggingface_hub
+    - monai
+    - polars
+    - opencv-python
+    - tyro
+    - datasets
+    - transformers
+    - nibabel
+    - mat73
+    - git+https://github.com/mikgroup/sigpy.git@5f63aa5cb3646023a00e83ea708e767861271b94
+    - pyeyes
+    - -e submodules/diffusers
+    - -e submodules/pips-medvae
+    - -e .
