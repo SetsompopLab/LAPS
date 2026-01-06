@@ -7,7 +7,7 @@ Run all from project root.
 **Stage 1 1D undersampling with various US levels**
 
 ```bash
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 4 \
     --project modl-slamming \
     --exp-name R1D-7-bs-8 \
@@ -25,7 +25,7 @@ python src/pips/modl/train.py \
 **Stage 1 2D undersampling with various US levels**
 
 ```bash
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 6 \
     --project modl-slamming \
     --exp-name R2D-multilevel-bs-8 \
@@ -45,7 +45,7 @@ python src/pips/modl/train.py \
 **Stage 2: 1D at various US levels**
 
 ```bash
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 4 \
     --project modl-slamming \
     --exp-name R1D-multilevel-bs-1-stage2 \
@@ -66,7 +66,7 @@ python src/pips/modl/train.py \
 **Stage 2: 2D at various US levels**
 
 ```bash
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 6 \
     --project modl-slamming \
     --exp-name R2D-multilevel-bs-1-stage2 \
@@ -86,7 +86,7 @@ python src/pips/modl/train.py \
 
 **Fine-tuned for specific rates (R=5, 10, 15, 20, 30)**
 ```bash
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 5 \
     --project modl-slamming \
     --exp-name R2D-R5-bs-1-stage2 \
@@ -102,7 +102,7 @@ python src/pips/modl/train.py \
     --num_workers 1  \
     --checkpoint_path ./models/modl/model_2d_bs1_normalized_scaledenoiser_10unroll_100kstep.pth
 
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 6 \
     --project modl-slamming \
     --exp-name R2D-R15-bs-1-stage2 \
@@ -119,7 +119,7 @@ python src/pips/modl/train.py \
     --checkpoint_path ./models/modl/model_2d_bs1_normalized_scaledenoiser_10unroll_100kstep.pth
 
 
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 5 \
     --project modl-slamming \
     --exp-name R2D-R10-bs-1-stage2 \
@@ -135,7 +135,7 @@ python src/pips/modl/train.py \
     --num_workers 1  \
     --checkpoint_path ./models/modl/model_2d_bs1_normalized_scaledenoiser_10unroll_100kstep.pth
 
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 6 \
     --project modl-slamming \
     --exp-name R2D-R20-bs-1-stage2 \
@@ -151,7 +151,7 @@ python src/pips/modl/train.py \
     --num_workers 1  \
     --checkpoint_path ./models/modl/model_2d_bs1_normalized_scaledenoiser_10unroll_100kstep.pth
 
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 2 \
     --project modl-slamming \
     --exp-name R2D-R30-bs-1-stage2 \
@@ -170,7 +170,7 @@ python src/pips/modl/train.py \
 
 **Fine-tuned for specific 1D rates (R=3, 5, 7 ,9)**
 ```bash
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 0 \
     --project modl-slamming \
     --exp-name R1D-R3-bs-1-stage2 \
@@ -186,7 +186,7 @@ python src/pips/modl/train.py \
     --num_workers 1  \
     --checkpoint_path ./models/modl/model_1d_bs1_normalized_scaledenoiser_10unroll_jointR.pth
 
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 7 \
     --project modl-slamming \
     --exp-name R1D-R5-bs-1-stage2 \
@@ -202,7 +202,7 @@ python src/pips/modl/train.py \
     --num_workers 1  \
     --checkpoint_path ./models/modl/model_1d_bs1_normalized_scaledenoiser_10unroll_jointR.pth
 
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 2 \
     --project modl-slamming \
     --exp-name R1D-R6-bs-1-stage2 \
@@ -218,7 +218,7 @@ python src/pips/modl/train.py \
     --num_workers 1  \
     --checkpoint_path ./models/modl/model_1d_bs1_normalized_scaledenoiser_10unroll_jointR.pth
 
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 8 \
     --project modl-slamming \
     --exp-name R1D-R7-bs-1-stage2 \
@@ -234,7 +234,7 @@ python src/pips/modl/train.py \
     --num_workers 1  \
     --checkpoint_path ./models/modl/model_1d_bs1_normalized_scaledenoiser_10unroll_jointR.pth
 
-python src/pips/modl/train.py \
+python src/laps/modl/train.py \
     --device 9 \
     --project modl-slamming \
     --exp-name R1D-R9-bs-1-stage2 \

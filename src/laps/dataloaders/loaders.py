@@ -396,11 +396,6 @@ def get_loader(
     loader_classes = {
         LoaderType.SLAM_DICOM: SlamDicomLoader,
         LoaderType.SLAM: SlamComplexLoader,
-        LoaderType.FASTMRI_T1: FastMRILoader,
-        LoaderType.FASTMRI_T2: FastMRILoader,
-        LoaderType.FASTMRI_FLAIR: FastMRILoader,
-        LoaderType.FASTMRI_T1POST: FastMRILoader,
-        LoaderType.FASTMRI_T1PRE: FastMRILoader,
     }
 
     if loader_type not in loader_classes:
@@ -424,11 +419,6 @@ def get_loader(
     # Add loader-specific parameters
     if loader_type in [
         LoaderType.SLAM,
-        LoaderType.FASTMRI_T1,
-        LoaderType.FASTMRI_T2,
-        LoaderType.FASTMRI_FLAIR,
-        LoaderType.FASTMRI_T1POST,
-        LoaderType.FASTMRI_T1PRE,
     ]:
         loader_kwargs.update(
             {

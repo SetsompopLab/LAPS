@@ -411,11 +411,6 @@ def train(args):
     dataset_list = [
         LoaderType.SLAM,
         LoaderType.SLAM_DICOM,
-        LoaderType.FASTMRI_T1,
-        LoaderType.FASTMRI_T2,
-        LoaderType.FASTMRI_FLAIR,
-        LoaderType.FASTMRI_T1POST,
-        LoaderType.FASTMRI_T1PRE,
     ]
     dataset = ConcatDataset(
         [LAPS_DATASETS[d].get_dataset("train", **dataset_kwargs) for d in dataset_list]
