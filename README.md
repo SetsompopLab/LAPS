@@ -1,6 +1,6 @@
-# PIPS - Prior Informed Latent Posterior Sampling
+# LAPS - Accelerating MRI with Longitudinally-informed Latent Posterior Sampling
 
-This repository contains code for longitudinal reconstruction of MR images using latent diffusion models. PIPS implements prior-informed latent posterior sampling techniques for improved MRI reconstruction across time series data.
+This repository contains code for longitudinal reconstruction of MR images using latent diffusion models. LAPS implements longitudinally-informed latent posterior sampling techniques for improved MRI reconstruction across time series data.
 
 Paper: https://arxiv.org/abs/2407.00537
 
@@ -59,9 +59,27 @@ After retrieving SLAM data, inference can be done with this script:
 
 Various reconstruction methods can be compared by adding or removing to the `recons` dictionary in the `Config` class. See `laps.recon` module for the different reconstruction methods implemented and their respective parameters.
 
-### SD Model and Fine-tuning development
+## Model Fine-tuning
 
 We have shared our code for fine-tuning both MedVAE and Stable Diffusion for our LAPS model development.
+
+### Fine Tuning Stable Diffusion for Complex MRI Image Generation
+To finetune stable diffusion model, a medvae model is first needed. Download ours here with this python code:
+```python
+from laps.model.medvae_download import download_model_folder
+download_model_folder()
+```
+
+Then you can run a training script like this example: 
+
+```bash
+# Make sure the environment is active
+mamba activate laps
+
+# Run the training script
+bash scripts/train_sd.sh
+```
+If you want to set up `accelerator` for multi gpu training run `accelerate config` and follow the instruction.
 
 ### Fine-tuning MedVAE
 An example of our medvae finetune is shown with this script:
@@ -73,16 +91,4 @@ mamba activate laps
 bash scripts/train_medvae_x4.sh
 ```
 
-If you want to set up `accelerator` for multi gpu training run `accelerate config` and follow the instruction.
-
-### FT Stable Diffusion
-To finetune stable diffusion model, run:
-
-```bash
-# Make sure the environment is active
-mamba activate laps
-
-# Run the training script
-bash scripts/train_sd.sh
-```
 If you want to set up `accelerator` for multi gpu training run `accelerate config` and follow the instruction.
