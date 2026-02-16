@@ -114,7 +114,7 @@ class LDMParams(ReconParams):
             },
         }
     )
-    gamma: float = 200
+    gamma: float = 200.0
     scheduler_ty: Optional[str] = "DDIM"
     n_avgs: int = 1
     dc_latent_steps: Optional[List[Tuple[float, float, int]]] = field(

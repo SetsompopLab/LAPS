@@ -80,7 +80,7 @@ sd_laps_medvae_4 = MedVaeLDMParams(
     auto_tp_config = AutoTpConfig(
         prior_recon_config = sd_caps_medvae_4_fast,
         reg_scale = 1.55,
-        reg_shift = -350,
+        reg_shift = -350.0,
         clip_min = 150,
         clip_max = 550,
     ),

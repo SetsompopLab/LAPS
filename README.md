@@ -22,7 +22,7 @@ mamba activate laps
 
 3. If not already done, create a `wandb` account as described here: https://docs.wandb.ai/models/quickstart
 
-4. Log into huggingface credentials with `hugginface-cli login` to retrieve models.
+4. Log into huggingface credentials with `hf auth login` to retrieve models.
 
 ## Usage
 

@@ -67,7 +67,6 @@ dependencies = [
     "open_clip_torch==2.24.0",
     "polars==0.19.10",
     "rich", # tested using 13.9.4
-    "clip@git+https://github.com/openai/CLIP.git" # tested using 1.0
 ]
 
 [project.urls]

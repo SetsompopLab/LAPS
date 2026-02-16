@@ -147,7 +147,7 @@ def pull_slam_dataset_volumes(
     """
     pull_slam_metadata(override=override, minimal=minimal, verbose=verbose)
     for split, load_ksp in [("train", not minimal), ("test", True)]:
-        pull_slam_volume_data(split=split, override=override, load_ksp=load_ksp, verbose=verbose)
+        pull_slam_volume_data(split=split, override=override, load_ksp=load_ksp)
 
 def prepare_slam_train(dicom=False) -> None:
     """
@@ -303,8 +303,4 @@ def prepare_slam_test() -> None:
     csv_file = str(root).rstrip("/") + ".csv"
     df_out.to_csv(csv_file, index=False)
     print(f"Saved slice-by-slice SLAM test data to {root} and metadata to {csv_file}.")
-
-# prepare_slam_train(dicom=False)
-# prepare_slam_train(dicom=True)
-prepare_slam_test()
 

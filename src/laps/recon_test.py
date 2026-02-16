@@ -116,7 +116,7 @@ class Config:
 
     # misc
     debug_slc: Optional[int] = None # debug mode: only run for a single slice
-    wandb_enable: bool = True  # toggle wandb on/off for debugging
+    wandb_enable: bool = False # toggle wandb on/off for debugging
 
 
 @dataclass
